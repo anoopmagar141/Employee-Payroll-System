@@ -55,3 +55,32 @@ void displayEmployees(struct Employee employees[], int count) {
     }
     printf("---------------------------------------------------\n");
 }
+
+int main() {
+    struct Employee employees[100];
+    int count = 0, choice;
+
+    while (1) {
+        printf("\nEmployee Payroll System");
+        printf("\n1. Add Employee");
+        printf("\n2. Display Employees");
+        printf("\n3. Exit");
+        printf("\nEnter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                addEmployee(employees, &count);
+                break;
+            case 2:
+                displayEmployees(employees, count);
+                break;
+            case 3:
+                printf("\nExiting... Goodbye!\n");
+                exit(0);
+            default:
+                printf("\nInvalid choice! Please try again.\n");
+        }
+    }
+    return 0;
+}
