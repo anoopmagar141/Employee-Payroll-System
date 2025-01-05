@@ -17,3 +17,26 @@ float calculateNetSalary(float basic, float hra, float da, float tax) {
     float tax_amount = (tax / 100) * gross_salary;
     return gross_salary - tax_amount;
 }
+
+void addEmployee(struct Employee employees[], int *count) {
+    struct Employee emp;
+    printf("\nEnter Employee ID: ");
+    scanf("%d", &emp.id);
+    getchar(); // To consume newline character
+    printf("Enter Employee Name: ");
+    fgets(emp.name, sizeof(emp.name), stdin);
+    emp.name[strcspn(emp.name, "\n")] = '\0'; // Remove newline character
+    printf("Enter Basic Salary: ");
+    scanf("%f", &emp.basic_salary);
+    printf("Enter HRA (House Rent Allowance): ");
+    scanf("%f", &emp.hra);
+    printf("Enter DA (Dearness Allowance): ");
+    scanf("%f", &emp.da);
+    printf("Enter Tax Percentage: ");
+    scanf("%f", &emp.tax);
+
+    emp.net_salary = calculateNetSalary(emp.basic_salary, emp.hra, emp.da, emp.tax);
+    employees[*count] = emp;
+    (*count)++;
+    printf("\nEmployee added successfully!\n");
+}
