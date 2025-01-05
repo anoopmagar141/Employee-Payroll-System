@@ -11,3 +11,9 @@ struct Employee {
     float tax; // Tax percentage
     float net_salary;
 };
+
+float calculateNetSalary(float basic, float hra, float da, float tax) {
+    float gross_salary = basic + hra + da;
+    float tax_amount = (tax / 100) * gross_salary;
+    return gross_salary - tax_amount;
+}
