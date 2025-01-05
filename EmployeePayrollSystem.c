@@ -40,3 +40,18 @@ void addEmployee(struct Employee employees[], int *count) {
     (*count)++;
     printf("\nEmployee added successfully!\n");
 }
+
+void displayEmployees(struct Employee employees[], int count) {
+    if (count == 0) {
+        printf("\nNo employees to display.\n");
+        return;
+    }
+    printf("\nEmployee Details:\n");
+    printf("---------------------------------------------------\n");
+    printf("ID\tName\t\tNet Salary\n");
+    printf("---------------------------------------------------\n");
+    for (int i = 0; i < count; i++) {
+        printf("%d\t%-15s\t%.2f\n", employees[i].id, employees[i].name, employees[i].net_salary);
+    }
+    printf("---------------------------------------------------\n");
+}
